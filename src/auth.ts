@@ -18,6 +18,7 @@ export const {
 } = NextAuth({
   adapter: PrismaAdapter(db),
   providers: [
+    // @ts-ignore
     GitHub({
       clientId: GITHUB_CLIENT_ID,
       clientSecret: GITHUB_CLIENT_SECRET,
@@ -33,7 +34,7 @@ export const {
   callbacks: {
     async session({ session, user }) {
       if (session && user) {
-        session.user.id = user.id;
+        session.user!.id = user.id;
       }
       return session;
     },
