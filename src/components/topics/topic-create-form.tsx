@@ -10,6 +10,7 @@ import {
   PopoverContent,
 } from "@nextui-org/react";
 import { useFormState } from "react-dom";
+import FormButton from "../shared/form-button";
 
 export default function TopicCreateForm() {
   const [formState, action] = useFormState(createTopic, { errors: {} });
@@ -43,10 +44,8 @@ export default function TopicCreateForm() {
               <div className="p-2 bg-red-200 border border-red-400 rounded">
                 {formState.errors._form.join(", ")}
               </div>
-            ) : (
-              null
-            )}
-            <Button type="submit">Submit</Button>
+            ) : null}
+            <FormButton>Submit</FormButton>
           </div>
         </form>
       </PopoverContent>
